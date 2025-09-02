@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+application:
+  title: Eureka Server
+  version: SNAPSHOT-1.0
+spring-boot:
+  version: 2.5.7
+
+spring:
+  application:
+    name: EUREKA-SERVER
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
