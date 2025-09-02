@@ -17,10 +17,9 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>student-service</module>
-		<module>user-service</module>
 		<module>api-gateway</module>
 		<module>eureka-server</module>
+		<module>auth-service</module>
 	</modules>
 	<scm>
 		<connection/>
