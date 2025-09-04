@@ -36,11 +36,21 @@ public class AuthServiceImpl implements AuthService {
 
         String token = jwtUtil.generateToken(user.getEmail(),user.getRole().name());
 
-        return new AuthResponse(token);
+        return new AuthResponse(token, "Successfully registered");
     }
 
     @Override
     public AuthResponse login(LoginRequest loginRequest) {
-        return null;
+
+        AuthUser user = authUserRepository.findByEmail(loginRequest.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if(!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())){
+            throw new RuntimeException("Invalid credentials");
+        }
+
+        String token = jwtUtil.generateToken(user.getEmail(),user.getRole().name());
+
+        return new AuthResponse(token, "Login successful");
     }
 }
