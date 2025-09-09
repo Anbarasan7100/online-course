@@ -20,7 +20,8 @@
 		<module>api-gateway</module>
 		<module>eureka-server</module>
 		<module>auth-service</module>
-	</modules>
+        <module>user-service</module>
+    </modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
