@@ -31,6 +31,7 @@
 		<java.version>17</java.version>
 		<spring-boot-dependencies-version>2.5.7</spring-boot-dependencies-version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<springdoc.version>1.8.0</springdoc.version>
 	</properties>
 
 	<dependencyManagement>
@@ -48,6 +49,11 @@
 				<version>${spring-cloud.version}</version>
 				<scope>import</scope>
 				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${springdoc.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
