@@ -9,7 +9,7 @@ spring-boot:
 
 spring:
   application:
-    name: EUREKA-SERVER
+    name: eureka-server
 
 eureka:
   instance:
