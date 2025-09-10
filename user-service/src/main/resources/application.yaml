@@ -1,25 +1,25 @@
 server:
-  port: 8081
+  port:  8082
 
 application:
-  title: Auth Service
+  title: User Service
   version: SNAPSHOT-1.0
 spring-boot:
   version: 2.5.7
 
 spring:
   application:
-    name: auth-service
+    name: user-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/auth_service_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/user_service_db?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
@@ -32,7 +32,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-jwt:
-  secret:  "DRvhRr+2/tmaYEBbm+yFneGXeNiaaa13mQFIhX0strY="
-  expiration: 3600000
