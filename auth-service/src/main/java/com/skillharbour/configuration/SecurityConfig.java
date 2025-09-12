@@ -17,22 +17,21 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/api/v1/auth/**").permitAll()
-                .antMatchers( "/v3/api-docs/**",
-                        "/v2/api-docs/**",
-                        "/swagger-ui/**",
-                        "/swagger-ui.html",
-                        "/swagger-ui/index.html",
-                        "/swagger-resources/**",
-                        "/webjars/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .httpBasic().disable()
-                .formLogin().disable();
+        httpSecurity.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth-> auth
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**",
+                                "/v2/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/index.html",
+                                "/swagger-resources/**",
+                                "/webjars/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .httpBasic(http -> http.disable())
+                .formLogin(form -> form.disable());
 
         return httpSecurity.build();
     }

@@ -2,7 +2,7 @@ package com.skillharbour.entity;
 
 import com.skillharbour.enums.Role;
 import lombok.*;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Entity

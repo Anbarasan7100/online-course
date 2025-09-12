@@ -3,8 +3,8 @@ package com.skillharbour.service;
 import com.skillharbour.dto.AuthResponse;
 import com.skillharbour.dto.LoginRequest;
 import com.skillharbour.dto.RequestRegister;
+import jakarta.validation.Valid;
 
-import javax.validation.Valid;
 
 public interface AuthService {
     AuthResponse register(@Valid RequestRegister requestRegister);
