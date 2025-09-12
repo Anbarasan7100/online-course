@@ -3,7 +3,7 @@ package com.skillharbour.entity;
 import com.skillharbour.enums.UserStatus;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -24,8 +24,11 @@ public class User extends BaseEntity{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column(nullable = false,unique = true)
-    private Long authUserId;
+    @Column(nullable = false,unique = true, length = 100)
+    private String authUserId;
+
+    @Column(length = 100)
+    private String email;
 
     @Column(nullable = false, length = 100)
     private String firstName;
